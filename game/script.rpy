@@ -28,29 +28,42 @@ label start:
 
     # Continuamos con la conversación
     e "Si en verdad me amas pon los datos de tu tarjeta aquí."
-    e "adios"
 
-    # Pregunta al jugador que desea preguntar
-    e "Ahora puedes hacerme una pregunta."
+   
+
+    # Iniciar el temporizador
+    $ countdown = 10
+    show screen countdown_screen
+ # Mostrar la imagen "pantalla" deslizándose desde abajo
+    show pantalla:
+        ypos 1000
+        linear 1.0 ypos 0
+    # Llamar a la función de temporizador
+    call countdown_timer
+
+    # Mostrar el menú después de que la imagen se haya deslizado completamente
     menu:
-        "¿Eres mujer?":
-            p "¿Eres mujer?"
-            e "No xd"
-        "¿Eres una IA?":
-            p "¿Eres una IA?"
-            # Movimiento rápido y parpadeo
-            show waifu at center:
-                linear 0.1 xalign 0.8
-                linear 0.1 xalign 0.2
-                linear 0.1 xalign 0.8
-                linear 0.1 xalign 0.2
-                linear 0.1 xalign 0.8
-                linear 0.1 xalign 0.2
-            show waifu g with dissolve
-            hide waifu g with dissolve
-            show waifu with dissolve
-            hide waifu with dissolve
-            show waifu g with dissolve
-            e "Sí, soy una IA."
+        "Guardar el teléfono":
+            e "Has guardado el teléfono."
+        "Seguir viendo el teléfono":
+            e "vete a la mierda"
 
+    return
+
+# Definir la pantalla del temporizador en la parte superior derecha del área de diálogo
+screen countdown_screen:
+    text "[countdown]" size 75 color "#FFFFFF" align (0.95, 0.05)  # Tamaño del texto 75, color blanco y centrado en la parte superior derecha del área de diálogo
+
+# Función para el temporizador
+label countdown_timer:
+    while countdown > 0:
+        $ countdown -= 1
+        $ renpy.pause(1.0)  # Pausa de 1 segundo entre cada decremento
+
+    # Si el temporizador llega a 0, Waifu dice un texto automáticamente
+    if countdown == 0:
+        hide pantalla
+        e "¡si vas a seguir veindo tu telefono me ire otaku asqueroso"
+
+    hide screen countdown_screen
     return

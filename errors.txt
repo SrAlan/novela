@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 44: end of line expected.
-    hide pantalla:
-                 ^
+File "game/script.rpy", line 34: expected 'comma or end of line' not found.
+    zorder 10
+    ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Thu Jun  6 17:59:33 2024
+Thu Jun  6 21:31:05 2024
