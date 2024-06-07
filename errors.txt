@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 98: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    show w_feliz_d  
-    ^
+File "game/script.rpy", line 112: expected 'label_name' not found.
+    jump scene co_lugar01
+        ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Fri Jun  7 17:08:54 2024
+Fri Jun  7 18:19:56 2024

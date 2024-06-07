@@ -6,6 +6,8 @@ define w_gal = Character("Waifu gal")
 define w_feliz = Character("Waifu alegre")
 define w_feliz_d = Character("Waifu alegre", image="w_feliz_d")  # Nuevo personaje con imagen diferente
 
+
+
 # Definir el personaje p (player) con nombre en color rojo
 init python:
     player_name = "amigo"  # Nombre por defecto
@@ -68,7 +70,49 @@ label start:
 
     w_timida "Hola, [player_name]."
 
+transform alpha_dissolve:
+    alpha 0.0
+    linear 0.5 alpha 1.0
+    on hide:
+        linear 0.5 alpha 0
+    # This is to fade the bar in and out, and is only required once in your script
+
+init: ### just setting variables in advance so there are no undefined variable problems
+    $ timer_range = 0
+    $ timer_jump = 0
+    $ time = 0
+
+screen countdown:
+    timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.01), false=[Hide('countdown'), Jump(timer_jump)]) 
+        ### ^this code decreases variable time by 0.01 until time hits 0, at which point, the game jumps to label timer_jump (timer_jump is another variable that will be defined later)
+
+    bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_dissolve 
+        # ^This is the timer bar.
+
+label questiontime1:
+    
+    label menu1:
+        $ time = 3                                     ### set variable time to 3
+        $ timer_range = 3                              ### set variable timer_range to 3 (this is for purposes of showing a bar)
+        $ timer_jump = 'menu1_slow'                    ### set where you want to jump once the timer runs out
+        show screen countdown                          ### call and start the timer
+
+        menu:
+            "con pito":
+                play sound click
+                hide screen countdown                  ### stop the timer
+                jump just
+            "sin pito":
+                play sound click
+                hide screen countdown                  ### stop the timer
+                jump just
+
+    label menu1_slow:
+        p "Mr. Abramov? Did you fall asleep, by any chance?"
+        jump nueva_escena
+     
     menu:
+     
         "¡Buenos días!":
             w_timida "jeje"
         "Qué linda estás hoy":
