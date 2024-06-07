@@ -2,7 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 41: Indentation mismatch.
+File "game/script.rpy", line 93: expected statement.
+    hide_phone()
+                ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Fri Jun  7 14:30:10 2024
+Fri Jun  7 15:29:19 2024

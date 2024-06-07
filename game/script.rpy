@@ -6,13 +6,9 @@ define w_feliz = Character("Waifu alegre")
 init python:
     player_name = "amigo"  # Nombre por defecto
 
-# Definir la pantalla del temporizador en la parte superior derecha del área de diálogo
-screen countdown_screen:
-    text "[countdown]" size 75 color "#FFFFFF" align (0.95, 0.05)  # Tamaño del texto 75, color blanco y centrado en la parte superior derecha del área de diálogo
-
 # Pantalla personalizada para mostrar la imagen "pantalla" sobre el UI
 screen pantalla_screen:
-    zorder 100  # Asegura que esté por encima de otros elementos de UI
+    zorder 200  # Asegura que esté por encima de otros elementos de UI
     add "pantalla" at pantalla_move
 
 # Definir la transformación de la imagen "pantalla"
@@ -25,7 +21,19 @@ transform from_right:
     xalign 1.5
     linear 1.0 xalign 0.5
 
+# Pantalla con botones para sacar y ocultar el teléfono
+screen phone_buttons:
+    zorder 200  # Asegura que los botones estén también por encima de otros elementos
+    hbox:
+        align (0.05, 0.05)
+        spacing 10
+        textbutton "Sacar teléfono" action Function(show_phone)
+        textbutton "Ocultar teléfono" action Function(hide_phone)
+
 label start:
+    # Mostrar los botones del teléfono
+    show screen phone_buttons
+
     # Escena 1: w_timida en co_entrada
     scene co_entrada
     show w_timida at from_right
@@ -62,32 +70,15 @@ label start:
     show w_feliz at from_right
     w_feliz "¿Cómo estás?"
 
-    # Iniciar el temporizador y mostrar la pantalla "pantalla" deslizándose desde abajo sobre el UI
-    $ countdown = 10
-    show screen countdown_screen
-    show screen pantalla_screen
-
-    # Llamar a la función de temporizador
-    call countdown_timer
-
-    # Mostrar el menú de preguntas
-    menu:
-        "Guardar el teléfono":
-            w_feliz "Has guardado el teléfono."
-        "Seguir viendo el teléfono":
-            w_feliz "¡Vete a la mierda!"
-
     return
 
-# Función para el temporizador
-label countdown_timer:
-    while countdown > 0:
-        $ countdown -= 1
-        $ renpy.pause(1.0)  # Pausa de 1 segundo entre cada decremento
+# Función para mostrar el teléfono
+init python:
+    def show_phone():
+        renpy.show_screen("pantalla_screen")
 
-    if countdown == 0:
-        hide screen pantalla_screen
-        w_feliz "¡Si vas a seguir viendo tu teléfono, me iré, otaku asqueroso!"
+# Función para ocultar el teléfono
+init python:
+    def hide_phone():
+        renpy.hide_screen("pantalla_screen")
 
-    hide screen countdown_screen
-    return
