@@ -1,4 +1,6 @@
-define e = Character("Waifu")
+define w_timida = Character("Waifu tímida")
+define w_gal = Character("Waifu gal")
+define w_feliz = Character("Waifu alegre")
 
 # Definir el personaje p (player) con nombre en color rojo
 init python:
@@ -18,30 +20,47 @@ transform pantalla_move:
     ypos 1000
     linear 1.0 ypos 0
 
+# Transformación para la entrada desde la derecha
+transform from_right:
+    xalign 1.5
+    linear 1.0 xalign 0.5
+
 label start:
-    # Inicializamos la escena con el fondo deseado
-    scene fondos
-
-    # Mostramos a "waifu" en el centro de la pantalla
-    show waifu at center
-
-    # Waifu pregunta el nombre del jugador
-    e "¿Cómo te llamas?"
+    # Escena 1: w_timida en co_entrada
+    scene co_entrada
+    show w_timida at from_right
+    w_timida "Hola, ¿Cómo te llamas?"
     $ player_name = renpy.input("Escribe tu nombre:")
     $ player_name = player_name.strip()  # Elimina espacios en blanco extra
 
-    # Si el jugador no introduce un nombre, le asignamos uno por defecto
     if player_name == "":
         $ player_name = "amigo"
 
-    # Redefinimos el personaje p con el nombre del jugador y color rojo
     define p = Character("[player_name]", color="#FF0000")
 
-    # Waifu saluda al jugador por su nombre
-    e "Hola, [player_name]."
+    w_timida "Hola, [player_name]."
+    
+    menu:
+        "¡Buenos días!":
+            w_timida "jeje"
+        "Qué linda estás hoy":
+            w_timida "jeje"
 
-    # Continuamos con la conversación
-    e "Si en verdad me amas pon los datos de tu tarjeta aquí."
+    # Transición suave a la escena 2
+    scene co_casillas01 with dissolve
+    show w_gal at from_right
+    w_gal "¡Llegaste temprano!"
+
+    menu:
+        "¡Sí! Me caí de la cama":
+            w_gal "jeje"
+        "Lo raro es que tú llegues temprano, ¿no?":
+            w_gal "jeje"
+
+    # Transición suave a la escena 3
+    scene co_salon01 with dissolve
+    show w_feliz at from_right
+    w_feliz "¿Cómo estás?"
 
     # Iniciar el temporizador y mostrar la pantalla "pantalla" deslizándose desde abajo sobre el UI
     $ countdown = 10
@@ -54,9 +73,9 @@ label start:
     # Mostrar el menú de preguntas
     menu:
         "Guardar el teléfono":
-            e "Has guardado el teléfono."
+            w_feliz "Has guardado el teléfono."
         "Seguir viendo el teléfono":
-            e "¡Vete a la mierda!"
+            w_feliz "¡Vete a la mierda!"
 
     return
 
@@ -66,10 +85,9 @@ label countdown_timer:
         $ countdown -= 1
         $ renpy.pause(1.0)  # Pausa de 1 segundo entre cada decremento
 
-    # Si el temporizador llega a 0, Waifu dice un texto automáticamente
     if countdown == 0:
         hide screen pantalla_screen
-        e "¡Si vas a seguir viendo tu teléfono, me iré, otaku asqueroso!"
+        w_feliz "¡Si vas a seguir viendo tu teléfono, me iré, otaku asqueroso!"
 
     hide screen countdown_screen
     return

@@ -2,9 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 12: expected statement.
-    overlay waifu at center
-                  ^
+File "game/script.rpy", line 41: Indentation mismatch.
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Fri Jun  7 09:35:11 2024
+Fri Jun  7 14:30:10 2024
