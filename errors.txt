@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 93: expected statement.
-    hide_phone()
-                ^
+File "game/script.rpy", line 98: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    show w_feliz_d  
+    ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Fri Jun  7 15:29:19 2024
+Fri Jun  7 17:08:54 2024

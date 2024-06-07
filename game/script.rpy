@@ -1,6 +1,10 @@
+# Importaciones (si las hubiera)
+
+# Definición de personajes
 define w_timida = Character("Waifu tímida")
 define w_gal = Character("Waifu gal")
 define w_feliz = Character("Waifu alegre")
+define w_feliz_d = Character("Waifu alegre", image="w_feliz_d")  # Nuevo personaje con imagen diferente
 
 # Definir el personaje p (player) con nombre en color rojo
 init python:
@@ -30,6 +34,22 @@ screen phone_buttons:
         textbutton "Sacar teléfono" action Function(show_phone)
         textbutton "Ocultar teléfono" action Function(hide_phone)
 
+# Función para mostrar el teléfono
+init python:
+    def show_phone():
+        """
+        Función para mostrar la pantalla del teléfono.
+        """
+        renpy.show_screen("pantalla_screen")
+
+# Función para ocultar el teléfono
+init python:
+    def hide_phone():
+        """
+        Función para ocultar la pantalla del teléfono.
+        """
+        renpy.hide_screen("pantalla_screen")
+
 label start:
     # Mostrar los botones del teléfono
     show screen phone_buttons
@@ -47,7 +67,7 @@ label start:
     define p = Character("[player_name]", color="#FF0000")
 
     w_timida "Hola, [player_name]."
-    
+
     menu:
         "¡Buenos días!":
             w_timida "jeje"
@@ -70,15 +90,27 @@ label start:
     show w_feliz at from_right
     w_feliz "¿Cómo estás?"
 
+    menu:
+        "Bien":
+            w_feliz "Me alegro."
+        "Mal":
+            hide w_feliz  # Ocultar la imagen de w_feliz
+            show w_feliz_d at left  # Mostrar la imagen de w_feliz_d a la derecha
+            w_feliz_d "Oh, mira ese pájaro."
+            
+            menu:
+                "1. Irse al salón seguro":
+                    jump nueva_escena
+                "2. Quedarse":
+                    w_feliz_d "Está bien, como quieras."
+
     return
 
-# Función para mostrar el teléfono
-init python:
-    def show_phone():
-        renpy.show_screen("pantalla_screen")
+label nueva_escena:
+    scene co_lugar01
+    p "Ahora estoy aquí."
+    "aqui ira una cinematica"
+    # Agrega más código aquí para la nueva escena
 
-# Función para ocultar el teléfono
-init python:
-    def hide_phone():
-        renpy.hide_screen("pantalla_screen")
-
+    # Regresar al menú principal
+    return
