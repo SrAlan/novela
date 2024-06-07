@@ -1,8 +1,22 @@
-﻿define e = Character("Waifu")
+define e = Character("Waifu")
 
 # Definir el personaje p (player) con nombre en color rojo
 init python:
     player_name = "amigo"  # Nombre por defecto
+
+# Definir la pantalla del temporizador en la parte superior derecha del área de diálogo
+screen countdown_screen:
+    text "[countdown]" size 75 color "#FFFFFF" align (0.95, 0.05)  # Tamaño del texto 75, color blanco y centrado en la parte superior derecha del área de diálogo
+
+# Pantalla personalizada para mostrar la imagen "pantalla" sobre el UI
+screen pantalla_screen:
+    zorder 100  # Asegura que esté por encima de otros elementos de UI
+    add "pantalla" at pantalla_move
+
+# Definir la transformación de la imagen "pantalla"
+transform pantalla_move:
+    ypos 1000
+    linear 1.0 ypos 0
 
 label start:
     # Inicializamos la escena con el fondo deseado
@@ -29,30 +43,22 @@ label start:
     # Continuamos con la conversación
     e "Si en verdad me amas pon los datos de tu tarjeta aquí."
 
-   
-
-    # Iniciar el temporizador
+    # Iniciar el temporizador y mostrar la pantalla "pantalla" deslizándose desde abajo sobre el UI
     $ countdown = 10
     show screen countdown_screen
- # Mostrar la imagen "pantalla" deslizándose desde abajo
-    show pantalla:
-        ypos 1000
-        linear 1.0 ypos 0
+    show screen pantalla_screen
+
     # Llamar a la función de temporizador
     call countdown_timer
 
-    # Mostrar el menú después de que la imagen se haya deslizado completamente
+    # Mostrar el menú de preguntas
     menu:
         "Guardar el teléfono":
             e "Has guardado el teléfono."
         "Seguir viendo el teléfono":
-            e "vete a la mierda"
+            e "¡Vete a la mierda!"
 
     return
-
-# Definir la pantalla del temporizador en la parte superior derecha del área de diálogo
-screen countdown_screen:
-    text "[countdown]" size 75 color "#FFFFFF" align (0.95, 0.05)  # Tamaño del texto 75, color blanco y centrado en la parte superior derecha del área de diálogo
 
 # Función para el temporizador
 label countdown_timer:
@@ -62,8 +68,8 @@ label countdown_timer:
 
     # Si el temporizador llega a 0, Waifu dice un texto automáticamente
     if countdown == 0:
-        hide pantalla
-        e "¡si vas a seguir veindo tu telefono me ire otaku asqueroso"
+        hide screen pantalla_screen
+        e "¡Si vas a seguir viendo tu teléfono, me iré, otaku asqueroso!"
 
     hide screen countdown_screen
     return

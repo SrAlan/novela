@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 34: expected 'comma or end of line' not found.
-    zorder 10
-    ^
+File "game/script.rpy", line 12: expected statement.
+    overlay waifu at center
+                  ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Thu Jun  6 21:31:05 2024
+Fri Jun  7 09:35:11 2024
