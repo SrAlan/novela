@@ -28,8 +28,8 @@
   <meta name="theme-color" content="#000" />
 
   <style>
-        /* Definimos la animación "float" */
-        @keyframes float {
+    /* Definimos la animación "float" */
+    @keyframes float {
         0% {
             transform: translateY(0px);
         }
@@ -40,6 +40,16 @@
             transform: translateY(0px);
         }
     }
+
+    /* Aplicamos la animación a la imagen de carga */
+    #presplash {
+        animation: float 3s ease-in-out infinite;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
 
     /* Aplicamos la animación a la imagen */
     #loading-screen {
