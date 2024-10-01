@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>CAM001</title>
+  <title>yet another phone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="manifest" href="manifest.json" />
+  <link rel="manifest" href="manifest.json" crossorigin="use-credentials" />
   <link rel="icon" href="icons/icon-72x72.png" sizes="72x72" type="image/png" />
   <link rel="icon" href="icons/icon-96x96.png" sizes="96x96" type="image/png" />
   <link rel="icon" href="icons/icon-128x128.png" sizes="128x128" type="image/png" />
@@ -28,37 +28,6 @@
   <meta name="theme-color" content="#000" />
 
   <style>
-    /* Definimos la animación "float" */
-    @keyframes float {
-        0% {
-            transform: translateY(0px);
-        }
-        50% {
-            transform: translateY(-50px);
-        }
-        100% {
-            transform: translateY(0px);
-        }
-    }
-
-    /* Aplicamos la animación a la imagen de carga */
-    #presplash {
-        animation: float 3s ease-in-out infinite;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-
-    /* Aplicamos la animación a la imagen */
-    #loading-screen {
-        animation: float 3s ease-in-out infinite;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
     html {
       background: #444;
       font-family: sans-serif;
@@ -247,6 +216,9 @@
   </div>
 
   <script>
+      // The URL to game.zip, relative to the URL of this file.
+      window.gameZipURL = 'game.zip';
+
       // Register the service worker.
       if (navigator.serviceWorker) {
           if (!navigator.serviceWorker.controller) {
