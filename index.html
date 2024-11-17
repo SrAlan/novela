@@ -41,10 +41,8 @@
       position: absolute;
       top: 0px;
       left: 0px;
-
       width: 100%;
       height: 100%;
-
       border: 0 none;
     }
 
@@ -70,12 +68,10 @@
       margin: auto;
       min-width: 340px;
       padding: 10px;
-
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-
       border-radius: 0 0 5px 5px;
     }
 
@@ -102,7 +98,6 @@
       font-size: 150%;
       margin-bottom: 1em;
       margin-top: 1em;
-
     }
 
     #inputText {
@@ -167,17 +162,29 @@
       color: #ffffff
     }
 
-    #presplash {
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: block;
-        margin: auto;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
     }
 
+    #presplash {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      animation: float 3s ease-in-out infinite;
+    }
   </style>
 
 </head>
@@ -199,7 +206,6 @@
       <a href="https://www.renpy.org/" target="_blank">
           Powered by Ren'Py
       </a>
-      </span>
     </div>
   </div>
 
@@ -216,10 +222,8 @@
   </div>
 
   <script>
-      // The URL to game.zip, relative to the URL of this file.
       window.gameZipURL = 'game.zip';
 
-      // Register the service worker.
       if (navigator.serviceWorker) {
           if (!navigator.serviceWorker.controller) {
               navigator.serviceWorker.register('./service-worker.js', { updateViaCache: 'all' });
@@ -231,5 +235,3 @@
 </body>
 
 </html>
-
-
