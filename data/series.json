@@ -1,0 +1,41 @@
+{
+    "Naruto": {
+        "episodios": [
+            { "numero": "001", "nombre": "¡Entra! ¡Naruto Uzumaki!", "visto": false },
+            { "numero": "002", "nombre": "¡Mi nombre es Konohamaru!", "visto": false },
+            { "numero": "003", "nombre": "Sasuke y Sakura: ¿Amigos o enemigos?", "visto": false },
+            { "numero": "004", "nombre": "Aprobar o reprobar: Un examen de supervivencia", "visto": false },
+            { "numero": "005", "nombre": "¡Fallaste! la decisión final de Kakashi", "visto": false },
+            {
+                "numero": "OVA 1", "nombre": "En busca del Trébol Carmesí de 4 hojas", "visto": false, "tipo": "OVA"
+            },
+            { "numero": "006", "nombre": "¡Una misión peligrosa! ¡Un viaje a la tierra de las Olas!", "visto": false },
+            { "numero": "007", "nombre": "¡El asesino de la neblina!", "visto": false },
+            { "numero": "008", "nombre": "El juramento del dolor", "visto": false },
+            { "numero": "009", "nombre": "Kakashi: ¡Guerrero Sharingan!", "visto": false },
+            { "numero": "010", "nombre": "El bosque del Chakra", "visto": false },
+            { "numero": "011", "nombre": "La tierra donde alguna vez vivió un héroe", "visto": false },
+            { "numero": "012", "nombre": "¡Batalla en el puente! ¡Zabuza regresa!", "visto": false },
+            { "numero": "013", "nombre": "El Jutsu secreto de Haku: Los espejos cristal de hielo", "visto": false },
+            { "numero": "014", "nombre": "¡El número uno hiperactivo Ninja cabeza hueca entra a la batalla!", "visto": false },
+            { "numero": "015", "nombre": "¡Visibilidad cero! ¡El Sharingan se hace pedazos!", "visto": false },
+            { "numero": "016", "nombre": "El sello roto", "visto": false },
+            { "numero": "017", "nombre": "Pasado blanco, ambición escondida", "visto": false },
+            { "numero": "018", "nombre": "Las armas conocidas como shinobi", "visto": false },
+            { "numero": "019", "nombre": "El demonio de la nieve", "visto": false },
+            { "numero": "020", "nombre": "¡Un nuevo capítulo comienza! ¡El Examen Chūnin!", "visto": false },
+            { "numero": "021", "nombre": "¡Identifíquense! ¡Nuevos y poderosos rivales!", "visto": false },
+            { "numero": "022", "nombre": "¡Grito al 120% obligado a aceptar el reto!", "visto": false },
+            { "numero": "023", "nombre": "¡La batalla genin! Los nueve novatos se enfrentan", "visto": false },
+            { "numero": "024", "nombre": "Enciendan motores, los exámenes Chunin comienzan", "visto": false },
+            { "numero": "025", "nombre": "¡La Décima Pregunta: Todo o Nada!", "visto": false },
+            { "numero": "026", "nombre": "¡Reporte especial! En vivo desde el bosque de la muerte", "visto": false },
+            { "numero": "OVA 1", "nombre": "En busca del Trébol Carmesí de 4 hojas", "visto": false, "tipo": "OVA" },
+            { "numero": "027", "nombre": "¡Una misión peligrosa! ¡Un viaje a la tierra de las Olas!", "visto": false },
+            { "numero": "028", "nombre": "¡El asesino de la neblina!", "visto": false },
+            { "numero": "029", "nombre": "El juramento del dolor", "visto": false },
+            { "numero": "030", "nombre": "Kakashi: ¡Guerrero Sharingan!", "visto": false },
+            { "numero": "Pelicula 1", "nombre": "La Película de Naruto: El Rescate de la Princesa", "visto": false, "tipo": "Pelicula" }
+        ]
+    }
+}
